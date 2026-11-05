@@ -84,6 +84,7 @@ def draw():
     pygame.draw.line(screen, (255, 255, 255), tip, pos, 2)
     pygame.draw.circle(screen, (220, 40, 40), pos, 8)
     for fish in fishes:
+        box = (fish["x"] - 25, fish["y"] - 12, 50, 24)
         pygame.draw.ellipse(screen, COLORS[fish["color"]], box)
     text = font.render(f"Score: {score}", True, (255, 255, 255))
     screen.blit(text, (20, 20))
