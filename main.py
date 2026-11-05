@@ -73,3 +73,18 @@ def update():
             hook["state"] = "idle"
 
 
+# drawing the game
+def draw():
+    screen.fill((120, 200, 255))
+    water = (0, WATER_Y, WIDTH, HEIGHT - WATER_Y)
+    pygame.draw.rect(screen, (30, 90, 170), water)
+    pygame.draw.rect(screen, (140, 90, 40), (380, 230, 240, 20))
+    tip = (560, 150)
+    pos = (hook["x"], hook["y"])
+    pygame.draw.line(screen, (255, 255, 255), tip, pos, 2)
+    pygame.draw.circle(screen, (220, 40, 40), pos, 8)
+    for fish in fishes:
+        pygame.draw.ellipse(screen, COLORS[fish["color"]], box)
+    text = font.render(f"Score: {score}", True, (255, 255, 255))
+    screen.blit(text, (20, 20))
+    pygame.display.flip()
